@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../images/logo.svg";
 import MenuOption from "./MenuOption";
+import { MdOutlineShoppingCart } from "react-icons/md";
 
 function LeftPanel() {
   return (
@@ -16,7 +17,10 @@ function LeftPanel() {
           <MenuOption icon="MdInsertChartOutlined"></MenuOption>
         </ul>
       </div>
-      <div className="flex-auto">3</div>
+
+      <div className="bg-mainYellow w-12 h-12 flex items-center justify-center rounded-full ml-8 mb-10">
+        <MdOutlineShoppingCart size={28} color="white"></MdOutlineShoppingCart>
+      </div>
     </div>
   );
 }
