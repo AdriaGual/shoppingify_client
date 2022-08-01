@@ -1,5 +1,11 @@
+import LeftPanel from "./components/LeftPanel";
+
 function App() {
-  return <h1 className="text-3xl underline">Hello world!</h1>;
+  return (
+    <div className="flex flex-no-wrap bg-grayBg">
+      <LeftPanel></LeftPanel>
+    </div>
+  );
 }
 
 export default App;
