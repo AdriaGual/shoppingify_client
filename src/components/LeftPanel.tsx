@@ -1,11 +1,5 @@
 import React from "react";
 import logo from "../images/logo.svg";
-import {
-  MdFormatListBulleted,
-  MdReplay,
-  MdInsertChartOutlined,
-} from "react-icons/md";
-import ReactTooltip from "react-tooltip";
 import MenuOption from "./MenuOption";
 
 function LeftPanel() {
