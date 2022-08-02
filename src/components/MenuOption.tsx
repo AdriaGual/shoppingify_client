@@ -41,7 +41,7 @@ function MenuOption(props: IconSettings) {
   return (
     <li data-tip data-for={props.icon}>
       <Link to={route}>
-        <div className="flex h-14">
+        <div className="flex h-14 w-28">
           <div className="flex items-center space-x-8">
             <div
               className={
