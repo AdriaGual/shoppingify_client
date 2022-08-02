@@ -5,46 +5,69 @@ import {
   MdInsertChartOutlined,
 } from "react-icons/md";
 import ReactTooltip from "react-tooltip";
+import { Link, useLocation } from "react-router-dom";
 
 interface IconSettings {
   icon: string;
 }
 
 function MenuOption(props: IconSettings) {
+  const location = useLocation();
+  var isMainMenuOption = props.icon === "MdFormatListBulleted";
+  var isHistoryMenuOption = props.icon === "MdReplay";
+  var isStatisticsMenuOption = props.icon === "MdInsertChartOutlined";
+
+  var isMainRoute = location.pathname === "/";
+  var isHistoryRoute = location.pathname === "/history";
+  var isStatisticsRoute = location.pathname === "/statistics";
+
+  var route = isMainMenuOption
+    ? "/"
+    : isHistoryMenuOption
+    ? "/history"
+    : "/statistics";
+
+  var tooltipMessage = isMainMenuOption
+    ? "items"
+    : isHistoryMenuOption
+    ? "history"
+    : "statistics";
+
+  var highlightIcon =
+    (isMainRoute && isMainMenuOption) ||
+    (isHistoryMenuOption && isHistoryRoute) ||
+    (isStatisticsMenuOption && isStatisticsRoute);
+
   return (
     <li data-tip data-for={props.icon}>
-      <div className="flex h-14">
-        <div className="flex items-center space-x-8">
-          <div
-            className={
-              props.icon === "MdFormatListBulleted"
-                ? "w-2 h-full bg-mainYellow rounded-r-lg"
-                : "w-2"
-            }
-          ></div>
-          <>
-            {props.icon === "MdFormatListBulleted" ? (
-              <MdFormatListBulleted
-                size={30}
-                color="fullDark"
-              ></MdFormatListBulleted>
-            ) : props.icon === "MdReplay" ? (
-              <MdReplay size={30} color="fullDark"></MdReplay>
-            ) : (
-              <MdInsertChartOutlined
-                size={30}
-                color="fullDark"
-              ></MdInsertChartOutlined>
-            )}
-          </>
+      <Link to={route}>
+        <div className="flex h-14">
+          <div className="flex items-center space-x-8">
+            <div
+              className={
+                highlightIcon ? "w-2 h-full bg-mainYellow rounded-r-lg" : "w-2"
+              }
+            ></div>
+            <>
+              {isMainMenuOption ? (
+                <MdFormatListBulleted
+                  size={30}
+                  color="fullDark"
+                ></MdFormatListBulleted>
+              ) : isHistoryMenuOption ? (
+                <MdReplay size={30} color="fullDark"></MdReplay>
+              ) : (
+                <MdInsertChartOutlined
+                  size={30}
+                  color="fullDark"
+                ></MdInsertChartOutlined>
+              )}
+            </>
+          </div>
         </div>
-      </div>
+      </Link>
       <ReactTooltip id={props.icon} place="right">
-        {props.icon === "MdFormatListBulleted"
-          ? "items"
-          : props.icon === "MdReplay"
-          ? "history"
-          : "statistics"}
+        {tooltipMessage}
       </ReactTooltip>
     </li>
   );
