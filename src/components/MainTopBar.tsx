@@ -8,7 +8,7 @@ function MainTopBar() {
         <span className="text-mainYellow">Shoppingify</span>
         <span> allows you take your shopping list wherever you go</span>
       </span>
-      <div className="w-1/4"></div>
+      <div className="w-1/6"></div>
       <div className=" w-1/2 flex items-center relative mb-6">
         <MdSearch
           size={26}
