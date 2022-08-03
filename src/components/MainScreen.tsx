@@ -43,7 +43,7 @@ function MainScreen() {
   return (
     <div className="flex flex-no-wrap">
       <LeftPanel></LeftPanel>
-      <div className="my-10 mx-20 space-y-12">
+      <div className="my-10 mx-20 space-y-12 w-2/3">
         <MainTopBar></MainTopBar>
         <MainItems></MainItems>
       </div>
