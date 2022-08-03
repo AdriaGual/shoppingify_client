@@ -1,6 +1,7 @@
-import { useQueryClient } from "@tanstack/react-query";
 import React from "react";
-import { MdOutlineAdd } from "react-icons/md";
+import { useQueryClient } from "@tanstack/react-query";
+import Item from "./Item";
+
 function MainItems() {
   const queryClient = useQueryClient();
 
@@ -16,17 +17,7 @@ function MainItems() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 mb-16">
               {items.map((item) => {
                 return (
-                  <div
-                    key={item.id}
-                    className="grid grid-cols-6 bg-white rounded-xl shadow-sm"
-                  >
-                    <div className="text-xl p-4 col-span-5">{item.name}</div>
-                    <div className="hover:bg-mainYellow rounded-r-xl">
-                      <div className="py-4 pl-2">
-                        <MdOutlineAdd size={28} color="gray"></MdOutlineAdd>
-                      </div>
-                    </div>
-                  </div>
+                  <Item key={item.id} id={item.id} name={item.name}></Item>
                 );
               })}
             </div>
