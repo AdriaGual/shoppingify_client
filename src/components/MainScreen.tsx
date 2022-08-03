@@ -1,9 +1,10 @@
 import React from "react";
 import LeftPanel from "./LeftPanel";
 import MainTopBar from "./MainTopBar";
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import { getCategoriesWithItems } from "../api/categories";
 import BeatLoader from "react-spinners/BeatLoader";
+import MainItems from "./MainItems";
 
 function MainScreen() {
   const {
@@ -42,8 +43,11 @@ function MainScreen() {
   return (
     <div className="flex flex-no-wrap">
       <LeftPanel></LeftPanel>
-      <MainTopBar></MainTopBar>
-      <div className="w-1/4 bg-yellowBg">sdfdf</div>
+      <div className="my-10 mx-20 space-y-12">
+        <MainTopBar></MainTopBar>
+        <MainItems></MainItems>
+      </div>
+      <div className="w-1/4 bg-yellowBg">ddddddddddddd</div>
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { MdSearch } from "react-icons/md";
 
 function MainTopBar() {
   return (
-    <div className="flex h-20 my-10 mx-20">
+    <div className="flex">
       <span className="text-3xl font-semibold w-4/5">
         <span className="text-mainYellow">Shoppingify</span>
         <span> allows you take your shopping list wherever you go</span>
