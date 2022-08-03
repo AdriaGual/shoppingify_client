@@ -10,3 +10,10 @@ export const createDefaultList = async (userId) => {
   });
   return 200;
 };
+
+export const findActiveList = async (userId) => {
+  const { data } = await axios.get(`${API_URL}/lists/find_by_user_id`, {
+    params: { user_id: userId },
+  });
+  return data;
+};

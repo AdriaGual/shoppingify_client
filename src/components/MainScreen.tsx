@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCategoriesWithItems } from "../api/categories";
 import BeatLoader from "react-spinners/BeatLoader";
 import MainItems from "./MainItems";
+import MainRightPanel from "./MainRightPanel";
 
 function MainScreen() {
   const { error, isLoading } = useQuery(["categories"], getCategoriesWithItems);
@@ -43,7 +44,7 @@ function MainScreen() {
         <MainTopBar></MainTopBar>
         <MainItems></MainItems>
       </div>
-      <div className="w-1/4 bg-yellowBg">ddddddddddddd</div>
+      <MainRightPanel></MainRightPanel>
     </div>
   );
 }
