@@ -10,7 +10,7 @@ function MainRightPanel() {
     data: activeList,
     error,
     isLoading,
-  } = useQuery(["active_list", localStorage.getItem("user_id")], () =>
+  } = useQuery(["active_list"], () =>
     findActiveList(localStorage.getItem("user_id"))
   );
 
@@ -62,7 +62,7 @@ function MainRightPanel() {
           <MdModeEditOutline></MdModeEditOutline>
         </div>
       </div>
-      <div className="space-y-8">
+      <div className="space-y-8 overflow-y-auto h-1/2">
         {activeList.categories.map((category) => {
           return (
             <div key={category.id} className="font-semibold">

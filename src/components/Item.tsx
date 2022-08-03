@@ -1,5 +1,7 @@
 import React from "react";
 import { MdOutlineAdd } from "react-icons/md";
+import { useQuery } from "@tanstack/react-query";
+import { addItemToList, findActiveList } from "../api/lists";
 
 interface ItemParams {
   id: number;
@@ -7,14 +9,23 @@ interface ItemParams {
 }
 
 function Item(props: ItemParams) {
+  const { data: activeList, refetch } = useQuery(["active_list"], () =>
+    findActiveList(localStorage.getItem("user_id"))
+  );
+
+  function handleAddItemToList() {
+    refetch();
+    addItemToList(props.id, activeList.id);
+  }
+
   return (
-    <div className="grid grid-cols-6 bg-white rounded-xl shadow-sm">
-      <div className="text-xl p-4 col-span-5">{props.name}</div>
+    <div className="flex bg-white rounded-xl shadow-sm ">
+      <div className="text-xl p-4 w-full">{props.name}</div>
       <button
-        className="hover:bg-mainYellow rounded-r-xl"
-        onClick={() => console.log(props.id)}
+        className="hover:bg-mainYellow rounded-r-xl m-auto"
+        onClick={() => handleAddItemToList()}
       >
-        <div className="py-4 pl-2">
+        <div className="py-4 w-12 pl-2">
           <MdOutlineAdd size={28} color="gray"></MdOutlineAdd>
         </div>
       </button>

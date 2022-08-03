@@ -17,3 +17,10 @@ export const findActiveList = async (userId) => {
   });
   return data;
 };
+
+export const addItemToList = async (itemId, listId) => {
+  await axios.post(
+    `${API_URL}/lists/add_item_to_list/` + itemId + "/" + listId
+  );
+  return 200;
+};
