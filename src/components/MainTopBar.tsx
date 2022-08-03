@@ -17,7 +17,7 @@ function MainTopBar() {
         ></MdSearch>
         <input
           placeholder="search items"
-          className="shadow-sm rounded-xl p-4 w-full pl-14"
+          className="shadow-sm rounded-xl p-4 w-full pl-14 outline-mainYellow"
         />
       </div>
     </div>
