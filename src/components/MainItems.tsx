@@ -4,8 +4,6 @@ import { MdOutlineAdd } from "react-icons/md";
 function MainItems() {
   const queryClient = useQueryClient();
 
-  console.log(queryClient.getQueryData(["categories"]));
-
   const categories: any = queryClient.getQueryData(["categories"]);
 
   return (

@@ -7,11 +7,7 @@ import BeatLoader from "react-spinners/BeatLoader";
 import MainItems from "./MainItems";
 
 function MainScreen() {
-  const {
-    data: categoriesWithItems,
-    error,
-    isLoading,
-  } = useQuery(["categories"], getCategoriesWithItems);
+  const { error, isLoading } = useQuery(["categories"], getCategoriesWithItems);
 
   if (isLoading) {
     return (
