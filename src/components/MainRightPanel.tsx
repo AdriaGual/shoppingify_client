@@ -62,7 +62,7 @@ function MainRightPanel() {
           <MdModeEditOutline></MdModeEditOutline>
         </div>
       </div>
-      <div className="space-y-8 overflow-y-auto h-1/2">
+      <div className="space-y-8">
         {activeList.categories.map((category) => {
           return (
             <div key={category.id} className="font-semibold">
@@ -73,7 +73,7 @@ function MainRightPanel() {
                     <div key={item.id} className="flex text-xl">
                       <div className="w-full">{item.name}</div>
                       <div className="w-32 py-2 px-5 text-sm border-2 rounded-full text-mainYellow h-10 m-auto">
-                        <div className="pl-1">3 pcs</div>
+                        <div className="pl-1">{item.pivot.quantity} pcs</div>
                       </div>
                     </div>
                   );

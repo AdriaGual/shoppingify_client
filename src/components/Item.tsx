@@ -2,6 +2,7 @@ import React from "react";
 import { MdOutlineAdd } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 import { addItemToList, findActiveList } from "../api/lists";
+import toast, { Toaster } from "react-hot-toast";
 
 interface ItemParams {
   id: number;
@@ -16,10 +17,14 @@ function Item(props: ItemParams) {
   function handleAddItemToList() {
     refetch();
     addItemToList(props.id, activeList.id);
+    toast.success(props.name + " is on " + activeList.name, {
+      id: props.id.toString(),
+    });
   }
 
   return (
     <div className="flex bg-white rounded-xl shadow-sm ">
+      <Toaster position="top-right" reverseOrder={false} />
       <div className="text-xl p-4 w-full">{props.name}</div>
       <button
         className="hover:bg-mainYellow rounded-r-xl m-auto"
