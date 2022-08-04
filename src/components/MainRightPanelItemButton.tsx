@@ -6,6 +6,8 @@ import {
   removeItemFromList,
   updateItemQuantity,
 } from "../api/lists";
+import Modal from "react-modal";
+import { MdClose } from "react-icons/md";
 
 interface ItemParams {
   id: number;
@@ -14,14 +16,24 @@ interface ItemParams {
 
 function MainRightPanelItemButton(props: ItemParams) {
   const [editButton, setEditButton] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: activeList, refetch } = useQuery(["active_list"], () =>
     findActiveList(localStorage.getItem("user_id"))
   );
 
+  function openModal() {
+    setIsModalOpen(true);
+  }
+
+  function closeModal() {
+    setIsModalOpen(false);
+  }
+
   async function handleRemoveItemFromList() {
     await removeItemFromList(props.id, activeList.id);
     refetch();
+    closeModal();
   }
 
   async function decreaseQuantity() {
@@ -44,13 +56,48 @@ function MainRightPanelItemButton(props: ItemParams) {
 
   return (
     <>
+      <div className="flex justify-center items-center">
+        <Modal
+          isOpen={isModalOpen}
+          onRequestClose={closeModal}
+          contentLabel="Example Modal"
+          className="bg-white rounded-2xl p-8 w-1/3 h-1/4 shadow-md modal"
+          overlayClassName="Overlay"
+        >
+          <div className="flex w-full h-4/6">
+            <div className="text-2xl w-full font-semibold">
+              Are you sure that you want to delete this item?
+            </div>
+            <div>
+              <button onClick={closeModal}>
+                <MdClose size={32}></MdClose>
+              </button>
+            </div>
+          </div>
+          <div className="flex w-full space-x-8">
+            <div className="w-full"></div>
+            <button
+              className="text-sm m-auto font-semibold"
+              onClick={closeModal}
+            >
+              cancel
+            </button>
+            <button
+              className="px-8 py-4 bg-red rounded-xl text-white font-semibold"
+              onClick={() => handleRemoveItemFromList()}
+            >
+              Yes
+            </button>
+          </div>
+        </Modal>
+      </div>
       {editButton ? (
         <div className="flex w-52 bg-white rounded-xl space-x-2">
           <button className="bg-mainYellow rounded-xl px-1">
             <MdDeleteOutline
               size={24}
               color="white"
-              onClick={() => handleRemoveItemFromList()}
+              onClick={() => openModal()}
             ></MdDeleteOutline>
           </button>
           <div className="flex p-2">
