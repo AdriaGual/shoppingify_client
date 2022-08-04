@@ -5,6 +5,7 @@ import { findActiveList } from "../api/lists";
 import BeatLoader from "react-spinners/BeatLoader";
 import { MdModeEditOutline } from "react-icons/md";
 import MainRightPanelItems from "./MainRightPanelItems";
+import { itemStore } from "../store/ItemStore";
 
 function MainRightPanel() {
   const {
@@ -14,6 +15,18 @@ function MainRightPanel() {
   } = useQuery(["active_list"], () =>
     findActiveList(localStorage.getItem("user_id"))
   );
+
+  const { setId, setName, setCategory, setNote, setImage, setShowDetails } =
+    itemStore();
+
+  function openAddItemPanel() {
+    setId(0);
+    setName("");
+    setCategory(0);
+    setNote("");
+    setImage("");
+    setShowDetails(2);
+  }
 
   if (isLoading) {
     return (
@@ -52,7 +65,10 @@ function MainRightPanel() {
           <div className="text-white font-semibold text-lg leading-1 leading-snug">
             Didn't find what you need?
           </div>
-          <button className="bg-white px-8 py-3 rounded-xl text-sm w-32 font-bold">
+          <button
+            className="bg-white px-8 py-3 rounded-xl text-sm w-32 font-bold"
+            onClick={() => openAddItemPanel()}
+          >
             Add item
           </button>
         </div>

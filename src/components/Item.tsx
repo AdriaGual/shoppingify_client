@@ -38,7 +38,7 @@ function Item(props: ItemParams) {
     setCategory(category.name);
     setNote(props.item.note);
     setImage(props.item.image);
-    setShowDetails(true);
+    setShowDetails(1);
   }
 
   return (

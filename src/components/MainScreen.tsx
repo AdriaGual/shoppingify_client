@@ -8,6 +8,7 @@ import MainItems from "./MainItems";
 import MainRightPanel from "./MainRightPanel";
 import { itemStore } from "../store/ItemStore";
 import MainRightDetailsPanel from "./MainRightDetailsPanel";
+import MainRightCreateItemPanel from "./MainRightCreateItemPanel";
 
 function MainScreen() {
   const { error, isLoading } = useQuery(["categories"], getCategoriesWithItems);
@@ -47,10 +48,12 @@ function MainScreen() {
         <MainTopBar></MainTopBar>
         <MainItems></MainItems>
       </div>
-      {showDetails ? (
+      {showDetails === 1 ? (
         <MainRightDetailsPanel></MainRightDetailsPanel>
-      ) : (
+      ) : showDetails === 0 ? (
         <MainRightPanel></MainRightPanel>
+      ) : (
+        <MainRightCreateItemPanel></MainRightCreateItemPanel>
       )}
     </div>
   );

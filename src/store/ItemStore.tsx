@@ -11,8 +11,8 @@ interface ItemState {
   setNote: (note: string) => void;
   image: string;
   setImage: (image: string) => void;
-  showDetails: boolean;
-  setShowDetails: (showDetails: boolean) => void;
+  showDetails: number;
+  setShowDetails: (showDetails: number) => void;
 }
 
 export const itemStore = create<ItemState>((set) => ({
@@ -46,7 +46,7 @@ export const itemStore = create<ItemState>((set) => ({
       ...state,
       image,
     })),
-  showDetails: false,
+  showDetails: 0,
   setShowDetails: (showDetails) =>
     set((state) => ({
       ...state,

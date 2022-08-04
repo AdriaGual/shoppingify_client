@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdOutlineArrowBack } from "react-icons/md";
+import { MdOutlineArrowBack, MdClose } from "react-icons/md";
 import { itemStore } from "../store/ItemStore";
 import { addItemToList, findActiveList } from "../api/lists";
 import { useQuery } from "@tanstack/react-query";
@@ -7,7 +7,6 @@ import toast, { Toaster } from "react-hot-toast";
 import { deleteItem } from "../api/items";
 import { getCategoriesWithItems } from "../api/categories";
 import Modal from "react-modal";
-import { MdClose } from "react-icons/md";
 
 function MainRightDetailsPanel() {
   const {
@@ -49,7 +48,7 @@ function MainRightDetailsPanel() {
     setCategory(0);
     setNote("");
     setImage("");
-    setShowDetails(false);
+    setShowDetails(0);
   }
 
   async function handleAddItemToList() {
