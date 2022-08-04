@@ -1,11 +1,10 @@
 import React from "react";
-import { useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 import Item from "./Item";
+import { getCategoriesWithItems } from "../api/categories";
 
 function MainItems() {
-  const queryClient = useQueryClient();
-
-  const categories: any = queryClient.getQueryData(["categories"]);
+  const { data: categories } = useQuery(["categories"], getCategoriesWithItems);
 
   return (
     <div className="font-semibold">
