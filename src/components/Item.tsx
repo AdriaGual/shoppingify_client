@@ -23,7 +23,7 @@ function Item(props: ItemParams) {
   }
 
   return (
-    <div className="flex bg-white rounded-xl shadow-sm ">
+    <div className="flex bg-white rounded-xl shadow-sm mt-4">
       <Toaster position="top-right" reverseOrder={false} />
       <div className="text-xl p-4 w-full">{props.name}</div>
       <button
