@@ -1,12 +1,12 @@
 import React from "react";
 import { MdOutlineAdd } from "react-icons/md";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { addItemToList, findActiveList } from "../api/lists";
 import toast, { Toaster } from "react-hot-toast";
+import { itemStore } from "../store/ItemStore";
 
 interface ItemParams {
-  id: number;
-  name: string;
+  item: any;
 }
 
 function Item(props: ItemParams) {
@@ -14,18 +14,39 @@ function Item(props: ItemParams) {
     findActiveList(localStorage.getItem("user_id"))
   );
 
+  const { setId, setName, setCategory, setNote, setImage, setShowDetails } =
+    itemStore();
+
+  const queryClient = useQueryClient();
+
+  const categories: any = queryClient.getQueryData(["categories"]);
+
   async function handleAddItemToList() {
-    refetch();
-    await addItemToList(props.id, activeList.id);
-    toast.success(props.name + " is on " + activeList.name, {
-      id: props.id.toString(),
+    await addItemToList(props.item.id, activeList.id);
+    toast.success(props.item.name + " is on " + activeList.name, {
+      id: props.item.id.toString(),
     });
+    refetch();
+  }
+
+  function showItemDetails() {
+    setId(props.item.id);
+    setName(props.item.name);
+    const category = categories.find(
+      (element: any) => element.id === props.item.category_id
+    );
+    setCategory(category.name);
+    setNote(props.item.note);
+    setImage(props.item.image);
+    setShowDetails(true);
   }
 
   return (
     <div className="flex bg-white rounded-xl shadow-sm mt-4">
       <Toaster position="top-right" reverseOrder={false} />
-      <div className="text-xl p-4 w-full">{props.name}</div>
+      <button className="text-xl p-4 w-full" onClick={() => showItemDetails()}>
+        {props.item.name}
+      </button>
       <button
         className="hover:bg-mainYellow rounded-r-xl m-auto"
         onClick={() => handleAddItemToList()}

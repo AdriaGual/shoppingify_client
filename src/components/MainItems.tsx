@@ -16,9 +16,7 @@ function MainItems() {
             <div className="text-2xl">{category.name}</div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12 mb-16">
               {items.map((item) => {
-                return (
-                  <Item key={item.id} id={item.id} name={item.name}></Item>
-                );
+                return <Item key={item.id} item={item}></Item>;
               })}
             </div>
           </div>

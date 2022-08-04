@@ -6,9 +6,12 @@ import { getCategoriesWithItems } from "../api/categories";
 import BeatLoader from "react-spinners/BeatLoader";
 import MainItems from "./MainItems";
 import MainRightPanel from "./MainRightPanel";
+import { itemStore } from "../store/ItemStore";
+import MainRightDetailsPanel from "./MainRightDetailsPanel";
 
 function MainScreen() {
   const { error, isLoading } = useQuery(["categories"], getCategoriesWithItems);
+  const { showDetails } = itemStore();
 
   if (isLoading) {
     return (
@@ -44,7 +47,11 @@ function MainScreen() {
         <MainTopBar></MainTopBar>
         <MainItems></MainItems>
       </div>
-      <MainRightPanel></MainRightPanel>
+      {showDetails ? (
+        <MainRightDetailsPanel></MainRightDetailsPanel>
+      ) : (
+        <MainRightPanel></MainRightPanel>
+      )}
     </div>
   );
 }
