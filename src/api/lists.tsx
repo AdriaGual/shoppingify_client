@@ -24,3 +24,19 @@ export const addItemToList = async (itemId, listId) => {
   );
   return 200;
 };
+
+export const updateItemQuantity = async (itemId, listId, quantity) => {
+  await axios.put(`${API_URL}/lists/update_item_quantity`, {
+    item_id: itemId,
+    list_id: listId,
+    quantity: quantity,
+  });
+  return 200;
+};
+
+export const removeItemFromList = async (itemId, listId) => {
+  await axios.delete(`${API_URL}/lists/remove_item_from_list`, {
+    params: { item_id: itemId, list_id: listId },
+  });
+  return 200;
+};

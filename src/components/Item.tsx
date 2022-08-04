@@ -14,9 +14,9 @@ function Item(props: ItemParams) {
     findActiveList(localStorage.getItem("user_id"))
   );
 
-  function handleAddItemToList() {
+  async function handleAddItemToList() {
     refetch();
-    addItemToList(props.id, activeList.id);
+    await addItemToList(props.id, activeList.id);
     toast.success(props.name + " is on " + activeList.name, {
       id: props.id.toString(),
     });

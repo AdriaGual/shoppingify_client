@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { findActiveList } from "../api/lists";
 import BeatLoader from "react-spinners/BeatLoader";
 import { MdModeEditOutline } from "react-icons/md";
+import MainRightPanelItems from "./MainRightPanelItems";
 
 function MainRightPanel() {
   const {
@@ -65,21 +66,12 @@ function MainRightPanel() {
       <div className="space-y-8">
         {activeList.categories.map((category) => {
           return (
-            <div key={category.id} className="font-semibold">
-              <div className="text-darkGray text-sm mb-6">{category.name}</div>
-              <div className="space-y-4">
-                {category.items.map((item) => {
-                  return (
-                    <div key={item.id} className="flex text-xl">
-                      <div className="w-full">{item.name}</div>
-                      <div className="w-32 py-2 px-5 text-sm border-2 rounded-full text-mainYellow h-10 m-auto">
-                        <div className="pl-1">{item.pivot.quantity} pcs</div>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+            <MainRightPanelItems
+              key={category.id}
+              id={category.id}
+              name={category.name}
+              items={category.items}
+            ></MainRightPanelItems>
           );
         })}
       </div>
