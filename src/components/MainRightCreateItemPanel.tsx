@@ -47,7 +47,7 @@ function MainRightCreateItemPanel() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="w-96 bg-white py-12 px-10 space-y-8">
+      <div className="w-1/5 bg-white py-12 px-10 space-y-8">
         <button className="flex space-x-2" onClick={() => resetItemDetails()}>
           <MdOutlineArrowBack className="text-mainYellow my-auto"></MdOutlineArrowBack>
           <div className="text-sm text-mainYellow font-semibold m-auto">

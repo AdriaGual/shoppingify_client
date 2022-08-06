@@ -80,7 +80,7 @@ function MainRightPanel() {
   }
 
   return (
-    <div className="w-96 bg-yellowBg py-8 px-10 space-y-10">
+    <div className="w-1/5 bg-yellowBg py-8 px-10 space-y-10">
       <div className="grid grid-cols-3 w-full bg-darkRed rounded-2xl h-32 relative">
         <div className="col-span-1">
           <img src={source} alt="logo" className="absolute source"></img>
@@ -148,7 +148,7 @@ function MainRightPanel() {
           <MdModeEditOutline></MdModeEditOutline>
         </button>
       </div>
-      <div className="space-y-8">
+      <div className="space-y-8 overflow-auto h-1/2">
         {activeList.categories.map((category) => {
           return (
             <MainRightPanelItems

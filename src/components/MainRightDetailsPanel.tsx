@@ -106,7 +106,7 @@ function MainRightDetailsPanel() {
           </div>
         </Modal>
       </div>
-      <div className="w-96 bg-white py-4 px-10 space-y-8">
+      <div className="w-1/5 bg-white py-4 px-10 space-y-8">
         <Toaster position="top-right" reverseOrder={false} />
         <button className="flex space-x-2" onClick={() => resetItemDetails()}>
           <MdOutlineArrowBack className="text-mainYellow my-auto"></MdOutlineArrowBack>
