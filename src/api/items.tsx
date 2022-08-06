@@ -6,3 +6,13 @@ export const deleteItem = async (itemId: any) => {
   await axios.delete(`${API_URL}/items/` + itemId);
   return 200;
 };
+
+export const createItem = async (data: any) => {
+  await axios.post(`${API_URL}/items`, {
+    name: data.name,
+    note: data.note,
+    image: data.image,
+    category_id: data.category,
+  });
+  return 200;
+};
