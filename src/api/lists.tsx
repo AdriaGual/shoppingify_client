@@ -60,3 +60,11 @@ export const updateList = async (listId, name, userId) => {
   });
   return 200;
 };
+
+export const cancelCompleteList = async (listId, canceled) => {
+  await axios.post(`${API_URL}/lists/cancel_complete_list`, {
+    list_id: listId,
+    canceled: canceled,
+  });
+  return 200;
+};

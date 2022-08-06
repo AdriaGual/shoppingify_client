@@ -7,7 +7,6 @@ import { MdOutlineDateRange, MdOutlineArrowForwardIos } from "react-icons/md";
 function HistoryLists() {
   const {
     data: historyLists,
-    refetch,
     error,
     isLoading,
   } = useQuery(["history_lists"], () =>
