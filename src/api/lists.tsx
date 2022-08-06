@@ -40,3 +40,13 @@ export const removeItemFromList = async (itemId, listId) => {
   });
   return 200;
 };
+
+export const updateList = async (listId, name, userId) => {
+  await axios.put(`${API_URL}/lists`, {
+    id: listId,
+    name: name,
+    active: 1,
+    user_id: userId,
+  });
+  return 200;
+};

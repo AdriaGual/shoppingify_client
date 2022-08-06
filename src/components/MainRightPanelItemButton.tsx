@@ -63,6 +63,7 @@ function MainRightPanelItemButton(props: ItemParams) {
           contentLabel="Example Modal"
           className="bg-white rounded-2xl p-8 w-1/3 h-1/4 shadow-md modal"
           overlayClassName="Overlay"
+          appElement={document.getElementById("root") as HTMLElement}
         >
           <div className="flex w-full h-4/6">
             <div className="text-2xl w-full font-semibold">

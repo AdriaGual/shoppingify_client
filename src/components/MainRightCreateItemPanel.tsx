@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { MdOutlineArrowBack } from "react-icons/md";
 import { itemStore } from "../store/ItemStore";
 import { getCategoriesWithItems } from "../api/categories";
