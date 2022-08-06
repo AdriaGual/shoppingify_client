@@ -18,6 +18,16 @@ export const findActiveList = async (userId) => {
   return data;
 };
 
+export const findListsByMonthYear = async (userId) => {
+  const { data } = await axios.get(
+    `${API_URL}/lists/find_lists_by_month_year`,
+    {
+      params: { user_id: userId },
+    }
+  );
+  return data;
+};
+
 export const addItemToList = async (itemId, listId) => {
   await axios.post(
     `${API_URL}/lists/add_item_to_list/` + itemId + "/" + listId
