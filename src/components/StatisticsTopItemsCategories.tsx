@@ -28,10 +28,7 @@ function StatisticsTopItemsCategories() {
               <div key={topItem.item_id}>
                 <div className="flex mb-2">
                   <div className="font-semibold w-full">{topItem.name}</div>
-                  <div
-                    key={topItem.item_id}
-                    className="font-semibold text-lg w-1/6"
-                  >
+                  <div className="font-semibold text-lg w-1/6">
                     {topItem.percentage} %
                   </div>
                 </div>
@@ -52,13 +49,10 @@ function StatisticsTopItemsCategories() {
         <div className="space-y-8">
           {topItemsCategories.top_categories.map((topCategory) => {
             return (
-              <div key={topCategory.item_id}>
+              <div key={topCategory.category_id}>
                 <div className="flex mb-2">
                   <div className="font-semibold w-full">{topCategory.name}</div>
-                  <div
-                    key={topCategory.item_id}
-                    className="font-semibold text-lg w-1/6"
-                  >
+                  <div className="font-semibold text-lg w-1/6">
                     {topCategory.percentage} %
                   </div>
                 </div>

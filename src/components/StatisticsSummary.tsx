@@ -1,17 +1,23 @@
-import React from "react";
-import StatisticsTopItemsCategories from "./StatisticsTopItemsCategories";
 import { useQuery } from "@tanstack/react-query";
-import { getTopItemsCategories } from "../api/items";
-import BeatLoader from "react-spinners/BeatLoader";
-import Loading from "./Loading";
+import { getNumberItemsByMonth } from "../api/lists";
 import Error from "./Error";
+import Loading from "./Loading";
+import StatisticsTopItemsCategories from "./StatisticsTopItemsCategories";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from "recharts";
 
 function StatisticsSummary() {
-  const {
-    data: topItemsCategories,
-    error,
-    isLoading,
-  } = useQuery(["top_items_categories"], () => getTopItemsCategories());
+  const { data, error, isLoading } = useQuery(["items_by_month"], () =>
+    getNumberItemsByMonth()
+  );
 
   if (isLoading) {
     return <Loading></Loading>;
@@ -22,9 +28,23 @@ function StatisticsSummary() {
   }
 
   return (
-    <div className="my-10 mx-20 space-y-12 w-2/3 px-20">
+    <div className="my-14 mx-20 space-y-12 w-2/3 px-20">
       <StatisticsTopItemsCategories></StatisticsTopItemsCategories>
       <div className="font-semibold text-2xl mb-12">Monthly summary</div>
+
+      <LineChart width={800} height={300} data={data}>
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <Line
+          type="monotone"
+          dataKey="count"
+          stroke="#F9A109"
+          activeDot={{ r: 8 }}
+        />
+      </LineChart>
     </div>
   );
 }
