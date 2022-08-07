@@ -32,6 +32,7 @@
 
 - [Overview](#overview)
   - [Built With](#built-with)
+  - [UML diagram](#uml-diagram)
 - [Features](#features)
 - [How to use](#how-to-use)
 - [Contact](#contact)
@@ -60,6 +61,10 @@ Page where you can create shoping lists, save them, keep a record of them and wa
 - [React Router](https://reactrouter.com/)
 - [Zustand](https://github.com/pmndrs/zustand)
 - [Recharts](https://recharts.org/en-US/)
+
+### UML diagram
+
+![screenshot](https://res.cloudinary.com/drws2krnb/image/upload/v1659893413/uml_shoppingify.drawio_quwgfa.png)
 
 ## Features
 
