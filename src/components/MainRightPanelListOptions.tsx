@@ -7,6 +7,7 @@ import {
 import Modal from "react-modal";
 import { MdClose } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
+import toast, { Toaster } from "react-hot-toast";
 
 function MainRightPanelListOptions() {
   const { data: activeList, refetch } = useQuery(["active_list"], () =>
@@ -28,6 +29,11 @@ function MainRightPanelListOptions() {
   async function handleCancelCompleteList() {
     await cancelCompleteList(activeList.id, isCancel);
     await createDefaultList(localStorage.getItem("user_id"));
+    if (isCancel) {
+      toast.success(activeList.name + " has been cancelled");
+    } else {
+      toast.success(activeList.name + " has been completed");
+    }
     closeModal();
     refetch();
   }
@@ -81,6 +87,7 @@ function MainRightPanelListOptions() {
           Complete
         </button>
       </div>
+      <Toaster position="top-right" reverseOrder={false} />
     </div>
   );
 }
