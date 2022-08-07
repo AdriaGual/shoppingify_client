@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:8000/api";
+const API_URL = "https://shoppingify-back.herokuapp.com/api";
 
 export const getCategoriesWithItems = async () => {
   const { data } = await axios.get(`${API_URL}/categories/get_items`);
