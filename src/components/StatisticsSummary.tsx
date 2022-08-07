@@ -1,18 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
+import {
+  CartesianGrid,
+  Legend,
+  Line,
+  LineChart,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { getNumberItemsByMonth } from "../api/lists";
 import Error from "./Error";
 import Loading from "./Loading";
 import StatisticsTopItemsCategories from "./StatisticsTopItemsCategories";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from "recharts";
 
 function StatisticsSummary() {
   const { data, error, isLoading } = useQuery(["items_by_month"], () =>
