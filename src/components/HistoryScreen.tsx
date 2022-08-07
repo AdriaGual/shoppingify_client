@@ -8,7 +8,6 @@ function HistoryScreen() {
     <div className="flex flex-no-wrap">
       <LeftPanel></LeftPanel>
       <HistoryLists></HistoryLists>
-
       <MainRightPanel></MainRightPanel>
     </div>
   );

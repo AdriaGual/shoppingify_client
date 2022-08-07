@@ -16,3 +16,8 @@ export const createItem = async (data: any) => {
   });
   return 200;
 };
+
+export const getTopItemsCategories = async () => {
+  const { data } = await axios.get(`${API_URL}/items/get_top_items_categories`);
+  return data;
+};
