@@ -1,12 +1,13 @@
-import React, { useState, useRef } from "react";
-import source from "../images/source.svg";
 import { useQuery } from "@tanstack/react-query";
-import { findActiveList, updateList } from "../api/lists";
-import BeatLoader from "react-spinners/BeatLoader";
-import { MdModeEditOutline, MdClose } from "react-icons/md";
-import MainRightPanelItems from "./MainRightPanelItems";
-import { itemStore } from "../store/ItemStore";
+import { useRef, useState } from "react";
+import { MdClose, MdModeEditOutline } from "react-icons/md";
 import Modal from "react-modal";
+import { findActiveList, updateList } from "../api/lists";
+import source from "../images/source.svg";
+import { itemStore } from "../store/ItemStore";
+import Error from "./Error";
+import Loading from "./Loading";
+import MainRightPanelItems from "./MainRightPanelItems";
 import MainRightPanelListOptions from "./MainRightPanelListOptions";
 
 function MainRightPanel() {
@@ -54,30 +55,11 @@ function MainRightPanel() {
   }
 
   if (isLoading) {
-    return (
-      <div className="flex h-screen justify-center items-center">
-        <div className="space-y-4">
-          <span className="text-2xl font-semibold">
-            Loading, please wait...
-          </span>
-          <div className="flex justify-center w-full">
-            <BeatLoader color="#F9A109" size={40} speedMultiplier={0.5} />
-          </div>
-        </div>
-      </div>
-    );
+    return <Loading></Loading>;
   }
 
   if (error) {
-    return (
-      <div className="flex h-screen justify-center items-center">
-        <div className="space-y-4">
-          <span className="text-2xl font-semibold">
-            An error just occurred, please try again :(
-          </span>
-        </div>
-      </div>
-    );
+    return <Error></Error>;
   }
 
   return (

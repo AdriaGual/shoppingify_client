@@ -1,4 +1,3 @@
-import React from "react";
 import LeftPanel from "./LeftPanel";
 import MainRightPanel from "./MainRightPanel";
 import StatisticsSummary from "./StatisticsSummary";

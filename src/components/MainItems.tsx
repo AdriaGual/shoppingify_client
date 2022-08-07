@@ -1,7 +1,6 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import Item from "./Item";
 import { getCategoriesWithItems } from "../api/categories";
+import Item from "./Item";
 
 function MainItems() {
   const { data: categories } = useQuery(["categories"], getCategoriesWithItems);

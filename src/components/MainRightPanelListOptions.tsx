@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { MdClose } from "react-icons/md";
+import Modal from "react-modal";
 import {
-  findActiveList,
   cancelCompleteList,
   createDefaultList,
+  findActiveList,
 } from "../api/lists";
-import Modal from "react-modal";
-import { MdClose } from "react-icons/md";
-import { useQuery } from "@tanstack/react-query";
-import toast, { Toaster } from "react-hot-toast";
 
 function MainRightPanelListOptions() {
   const { data: activeList, refetch } = useQuery(["active_list"], () =>

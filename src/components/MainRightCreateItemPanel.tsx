@@ -1,10 +1,9 @@
-import React from "react";
-import { MdOutlineArrowBack } from "react-icons/md";
-import { itemStore } from "../store/ItemStore";
-import { getCategoriesWithItems } from "../api/categories";
 import { useQuery } from "@tanstack/react-query";
-import { useForm, SubmitHandler } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { MdOutlineArrowBack } from "react-icons/md";
+import { getCategoriesWithItems } from "../api/categories";
 import { createItem } from "../api/items";
+import { itemStore } from "../store/ItemStore";
 
 interface IFormInput {
   name: string;

@@ -1,4 +1,3 @@
-import React from "react";
 import MainRightPanelItemButton from "./MainRightPanelItemButton";
 
 interface CategoryParams {

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { MdOutlineArrowBack, MdClose } from "react-icons/md";
-import { itemStore } from "../store/ItemStore";
-import { addItemToList, findActiveList } from "../api/lists";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import toast, { Toaster } from "react-hot-toast";
-import { deleteItem } from "../api/items";
-import { getCategoriesWithItems } from "../api/categories";
+import { MdClose, MdOutlineArrowBack } from "react-icons/md";
 import Modal from "react-modal";
+import { getCategoriesWithItems } from "../api/categories";
+import { deleteItem } from "../api/items";
+import { addItemToList, findActiveList } from "../api/lists";
+import { itemStore } from "../store/ItemStore";
 
 function MainRightDetailsPanel() {
   const {

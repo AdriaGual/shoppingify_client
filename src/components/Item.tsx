@@ -1,4 +1,3 @@
-import React from "react";
 import { MdOutlineAdd } from "react-icons/md";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { addItemToList, findActiveList } from "../api/lists";

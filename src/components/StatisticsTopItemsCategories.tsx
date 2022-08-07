@@ -1,7 +1,7 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { getTopItemsCategories } from "../api/items";
-import BeatLoader from "react-spinners/BeatLoader";
+import Loading from "./Loading";
+import Error from "./Error";
 
 function StatisticsTopItemsCategories() {
   const {
@@ -11,34 +11,15 @@ function StatisticsTopItemsCategories() {
   } = useQuery(["top_items_categories"], () => getTopItemsCategories());
 
   if (isLoading) {
-    return (
-      <div className="flex h-screen justify-center items-center">
-        <div className="space-y-4">
-          <span className="text-2xl font-semibold">
-            Loading, please wait...
-          </span>
-          <div className="flex justify-center w-full">
-            <BeatLoader color="#F9A109" size={40} speedMultiplier={0.5} />
-          </div>
-        </div>
-      </div>
-    );
+    return <Loading></Loading>;
   }
 
   if (error) {
-    return (
-      <div className="flex h-screen justify-center items-center">
-        <div className="space-y-4">
-          <span className="text-2xl font-semibold">
-            An error just occurred, please try again :(
-          </span>
-        </div>
-      </div>
-    );
+    return <Error></Error>;
   }
 
   return (
-    <div className="flex flex-row px-20">
+    <div className="flex flex-row">
       <div className="w-1/3">
         <div className="font-semibold text-2xl mb-12">Top items</div>
         <div className="space-y-8">

@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import BeatLoader from "react-spinners/BeatLoader";
 import { MdOutlineDateRange } from "react-icons/md";
 import { listStore } from "../store/ListStore";
 import { findListItems } from "../api/lists";
 import { MdOutlineArrowBack } from "react-icons/md";
+import Loading from "./Loading";
+import Error from "./Error";
 
 function HistoryListsDetails() {
   const {
@@ -33,32 +34,12 @@ function HistoryListsDetails() {
   }
 
   if (isLoading) {
-    return (
-      <div className="flex h-screen justify-center items-center">
-        <div className="space-y-4">
-          <span className="text-2xl font-semibold">
-            Loading, please wait...
-          </span>
-          <div className="flex justify-center w-full">
-            <BeatLoader color="#F9A109" size={40} speedMultiplier={0.5} />
-          </div>
-        </div>
-      </div>
-    );
+    return <Loading></Loading>;
   }
 
   if (error) {
-    return (
-      <div className="flex h-screen justify-center items-center">
-        <div className="space-y-4">
-          <span className="text-2xl font-semibold">
-            An error just occurred, please try again :(
-          </span>
-        </div>
-      </div>
-    );
+    return <Error></Error>;
   }
-
   return (
     <div className="my-10 mx-20 space-y-12 w-2/3">
       <button className="flex space-x-2" onClick={() => resetListDetails()}>

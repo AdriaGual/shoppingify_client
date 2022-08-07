@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-import { MdDeleteOutline, MdOutlineAdd, MdOutlineRemove } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
+import {
+  MdClose,
+  MdDeleteOutline,
+  MdOutlineAdd,
+  MdOutlineRemove,
+} from "react-icons/md";
+import Modal from "react-modal";
 import {
   findActiveList,
   removeItemFromList,
   updateItemQuantity,
 } from "../api/lists";
-import Modal from "react-modal";
-import { MdClose } from "react-icons/md";
 
 interface ItemParams {
   id: number;

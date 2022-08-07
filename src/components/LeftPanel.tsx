@@ -1,7 +1,6 @@
-import React from "react";
+import { MdOutlineShoppingCart } from "react-icons/md";
 import logo from "../images/logo.svg";
 import MenuOption from "./MenuOption";
-import { MdOutlineShoppingCart } from "react-icons/md";
 
 function LeftPanel() {
   return (

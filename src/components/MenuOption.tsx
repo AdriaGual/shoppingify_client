@@ -1,11 +1,10 @@
-import React from "react";
 import {
   MdFormatListBulleted,
-  MdReplay,
   MdInsertChartOutlined,
+  MdReplay,
 } from "react-icons/md";
-import ReactTooltip from "react-tooltip";
 import { Link, useLocation } from "react-router-dom";
+import ReactTooltip from "react-tooltip";
 
 interface IconSettings {
   icon: string;

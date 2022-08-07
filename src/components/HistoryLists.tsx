@@ -1,4 +1,3 @@
-import React from "react";
 import { listStore } from "../store/ListStore";
 import HistoryListsRegisters from "./HistoryListsRegisters";
 import HistoryListsDetails from "./HistoryListsDetails";

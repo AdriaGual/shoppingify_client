@@ -38,6 +38,13 @@ export const findListsByMonthYear = async (userId) => {
   return data;
 };
 
+export const getNumberItemsByMonth = async () => {
+  const { data } = await axios.get(
+    `${API_URL}/lists/get_number_items_by_month`
+  );
+  return data;
+};
+
 export const addItemToList = async (itemId, listId) => {
   await axios.post(
     `${API_URL}/lists/add_item_to_list/` + itemId + "/" + listId
