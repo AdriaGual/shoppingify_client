@@ -18,6 +18,16 @@ export const findActiveList = async (userId) => {
   return data;
 };
 
+export const findListItems = async (listId) => {
+  const { data } = await axios.get(
+    `${API_URL}/lists/find_items_grouped_by_category`,
+    {
+      params: { list_id: listId },
+    }
+  );
+  return data;
+};
+
 export const findListsByMonthYear = async (userId) => {
   const { data } = await axios.get(
     `${API_URL}/lists/find_lists_by_month_year`,

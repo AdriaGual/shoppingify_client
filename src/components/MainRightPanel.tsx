@@ -81,8 +81,8 @@ function MainRightPanel() {
   }
 
   return (
-    <div className="w-1/5 bg-yellowBg">
-      <div className="py-8 px-10 space-y-10">
+    <div className="w-1/5 bg-yellowBg flex flex-col">
+      <div className="flex-grow py-8 px-10 space-y-10">
         <div className="grid grid-cols-3 w-full bg-darkRed rounded-2xl h-32 relative">
           <div className="col-span-1">
             <img src={source} alt="logo" className="absolute source"></img>
