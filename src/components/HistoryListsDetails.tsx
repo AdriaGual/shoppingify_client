@@ -1,13 +1,9 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { findListsByMonthYear } from "../api/lists";
 import BeatLoader from "react-spinners/BeatLoader";
-import { MdOutlineDateRange, MdOutlineArrowForwardIos } from "react-icons/md";
+import { MdOutlineDateRange } from "react-icons/md";
 import { listStore } from "../store/ListStore";
-import HistoryListsRegisters from "./HistoryListsRegisters";
-import { addItemToList, findListItems } from "../api/lists";
+import { findListItems } from "../api/lists";
 import { MdOutlineArrowBack } from "react-icons/md";
-import Item from "./Item";
 
 function HistoryListsDetails() {
   const {
@@ -24,7 +20,6 @@ function HistoryListsDetails() {
 
   const {
     data: listDetails,
-    refetch,
     isLoading,
     error,
   } = useQuery(["list_details"], () => findListItems(id));
