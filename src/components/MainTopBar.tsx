@@ -8,7 +8,7 @@ function MainTopBar() {
         <span> allows you take your shopping list wherever you go</span>
       </span>
       <div className="w-1/6"></div>
-      <div className=" w-1/2 flex items-center relative mb-6">
+      <div className="w-1/2 lg:flex items-center relative mb-6 hidden">
         <MdSearch
           size={26}
           color="lightDark"

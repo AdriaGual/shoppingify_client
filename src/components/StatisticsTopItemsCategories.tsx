@@ -56,7 +56,7 @@ function StatisticsTopItemsCategories() {
                     {topCategory.percentage} %
                   </div>
                 </div>
-                <div className="w-full bg-gray h-4rounded-full">
+                <div className="w-full bg-gray h-2 rounded-full">
                   <div
                     className={"bg-blue h-2 rounded-full"}
                     style={{ width: topCategory.percentage + "%" }}

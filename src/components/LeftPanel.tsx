@@ -18,12 +18,12 @@ function LeftPanel() {
           </ul>
         </div>
 
-        <div className="bg-mainYellow w-12 h-12 flex items-center justify-center rounded-full ml-8 mb-10">
+        <button className="bg-mainYellow w-12 h-12 flex items-center justify-center rounded-full ml-8 mb-10">
           <MdOutlineShoppingCart
             size={28}
             color="white"
           ></MdOutlineShoppingCart>
-        </div>
+        </button>
       </div>
     </div>
   );

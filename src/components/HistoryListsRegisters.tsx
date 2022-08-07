@@ -45,13 +45,13 @@ function HistoryListsRegisters() {
               {monthLists.map((list) => {
                 return (
                   <div
-                    className="flex w-full bg-white shadow-sm rounded-xl p-6"
+                    className="flex bg-white shadow-sm rounded-xl p-6"
                     key={list.id}
                   >
                     <div className="font-bold text-xl my-auto w-2/3">
                       {list.name}
                     </div>
-                    <div className="flex w-1/3 space-x-12">
+                    <div className="lg:flex space-x-12">
                       <div className="flex space-x-2">
                         <div className="text-gray my-auto">
                           <MdOutlineDateRange size={24}></MdOutlineDateRange>
@@ -73,7 +73,7 @@ function HistoryListsRegisters() {
                           completed
                         </div>
                       )}
-                      <div className="w-full"></div>
+
                       <button
                         className="my-auto text-mainYellow"
                         onClick={() => showListDetails(list)}
